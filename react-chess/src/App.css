@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    background-color: rgb(58, 58, 58);
+}
 
 .app {
     width: 100vw;
