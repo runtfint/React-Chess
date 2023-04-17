@@ -82,10 +82,17 @@ export class Cell {
         this.figure = figure
         this.figure.cell = this
     }
+    
+    addLostFigure(figure: Figure ){
+        figure.color === Colors.BLACK
+         ? this.board.lostBlackFigures.push(figure) 
+         : this.board.lostWhiteFigures.push(figure) 
+    }
 
     moveFigure(target: Cell){
         if(this.figure && this.figure?.canMove(target)){
             this.figure.moveFigure(target)
+            target.figure && this.addLostFigure(target.figure)
             target.setFigure(this.figure)
             this.figure = null
         }
